@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	xmlns:sec="http://www.w3.org/1999/xhtml" layout:decorate="layout">
+
+<head th:replace="common/header :: common-header" />
+
+<body>
+
+	<div th:replace="common/header :: common-navbar" />
+
+	<div class="container-fluid mt-5">
+		<div class="row">
+			<div class="card mb-3">
+				<div class="row g-0">
+					<div class="col-md-4">
+						<img class="img-fluid rounded-start" th:src="@{${'/image/book/' + book.id + '.png'}}" style="width: 270px;" />
+					</div>
+					<div class="col-md-4">
+						<div class="card-body">
+							<h5 class="card-title mb-4">Title - <span th:text="${book.title}"></span></h5>
+							<h5 class="mb-4">Author - <span th:text="${book.author}"></span></h5>
+							<h5 class="mb-4">Publisher - <span th:text="${book.publisher}"></span></h5>
+							<h5 class="mb-4">Publication Date - <span th:text="${book.publicationDate}"></span></h5>
+							<h5 class="mb-4">Language - <span th:text="${book.language}"></span></h5>
+							<h5 class="mb-4">Category - <span th:text="${book.category}"></span></h5>
+							<h5>Number Of Pages - <span th:text="${book.numberOfPages}"></span></h5>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="card-body">
+							<h5 class="mb-4">Format - <span th:text="${book.format}"></span></h5>
+							<h5 class="mb-4">ISBN - <span th:text="${book.isbn}"></span></h5>
+							<h5 class="mb-4">Shipping Weight - <span th:text="${book.shippingWeight}"></span></h5>
+							<h5 class="mb-4">List Price - <span th:text="${book.listPrice}"></span> $</h5>
+							<h5 class="mb-4">Our Price - <span th:text="${book.ourPrice}"></span> $</h5>
+							<h5 class="mb-4">Status - <span th:text="${book.active}"></span></h5>
+							<h5>Stock Number - <span th:text="${book.inStockNumber}"></span></h5>
+						</div>
+					</div>
+					<div class="col-md-8 offset-md-3">
+						<h5><b>Description -</b></h5>
+						<p class="card-text"><span th:utext="${book.description}"></span></p>
+					</div>
+					<div class="col-md-2 offset-md-10">
+						<a class="btn btn-info" th:href="@{/book/bookList}">Go Back</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
